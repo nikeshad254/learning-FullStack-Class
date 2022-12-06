@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding 2 number</title>
+</head>
+<body>
+    <label for="firstnum">First Number: </label>
+    <input type="number" name="fistnum" id="firstnum"><br><br>
+
+    <label for="secondnum">Second Number</label>
+    <input type="number" name="secondnum" id="secondnum"><br><br>
+
+    <button id="calc">Calculate</button><br><br>
+
+    <p id="display">hello</p>
+
+    <script>
+        let fnum = document.getElementById("firstnum");
+        let snum = document.getElementById("secondnum");
+        let btn = document.getElementById("calc");
+        let display = document.getElementById("display");
+
+        btn.addEventListener("click", ()=>{
+            console.log("hello");
+            let ans = Number.parseInt(fnum.value) + Number.parseInt(snum.value);
+            display.innerText = ans;
+        });
+        
+
+    </script>
+</body>
+</html>
