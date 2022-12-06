@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Same Page MarkSheet Generator</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <form class="form-place" method="get" enctype="multipart/form-data">
+        <label for="stuName">Student Name: </label>
+        <input type="text" name="stuName" id="stuName">
+
+        <label for="rollNum">Roll No: </label>
+        <input type="number" name="rollNum" id="rollNum">
+
+        <h4 id="subjects">Subjects:</h4>
+
+        <label for="math">Math: </label>
+        <input type="number" name="math" id="math" min="0" max="100">
+
+        <label for="science">Science: </label>
+        <input type="number" name="science" id="science" min="0" max="100">
+
+        <label for="social">Social: </label>
+        <input type="number" name="social" id="social" min="0" max="100">
+
+        <label for="nepali">Nepali: </label>
+        <input type="number" name="nepali" id="nepali" min="0" max="100">
+
+        <label for="english">English: </label>
+        <input type="number" name="english" id="english" min="0" max="100">
+
+        <input type="button" name="submit" id="submit" value="Submit">
+    </form>
+
+    <div class="marksheet" id="marksheet">
+        <h3 class="mark-title">Mark Sheet</h3>
+        <dl>
+            <dt>Name:</dt>
+            <dd id="Stuname">Not Found</dd>
+
+            <dt>Roll No:</dt>
+            <dd id="Rollnum">Not Found</dd>
+        </dl>
+
+        <h4>Mark Table: </h4>
+
+        <table class="mark-table">
+            <thead>
+              
+                <th>Subjects</th>
+                <th>OM</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Math</td>
+                    <td id="Math">00</td>
+                </tr>
+
+                <tr>
+                    <td>English</td>
+                    <td id="English">00</td>
+                </tr>
+                
+                <tr>
+                    <td>Sciences</td>
+                    <td id="Science">00</td>
+                </tr>
+                
+                <tr>
+                    <td>Social</td>
+                    <td id="Social">00</td>
+                </tr>
+                
+                <tr>
+                    <td>Nepali</td>
+                    <td id="Nepali">00</td>
+                </tr>
+               
+            </tbody>
+        </table>
+
+        <dl>
+            <dt>Total: </dt>
+            <dd id="Total">"All value not entered"</dd>
+
+
+            <dt>Percentage: </dt>
+            <dd id="Percentage">Please enter all fields to calculate</dd>
+        </dl>
+
+    </div>
+
+    <script src="marksheet.js"></script>
+    
+</body>
+</html>

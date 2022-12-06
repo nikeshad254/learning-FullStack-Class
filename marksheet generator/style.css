@@ -1,0 +1,74 @@
+body{
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.form-place{
+    border: 2px solid red;
+    border-radius: 10px;
+    width:350px;
+    height: 350px;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    padding: 30px;
+
+}
+#subjects{
+    grid-column: 1 / 2 span;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+.form-place label,
+.form-place input{
+    margin-bottom: 10px;
+}
+#submit{
+    grid-column: 1 / 2 span;
+    padding: 10px 0px;
+    margin-top: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 20px;
+}
+#submit:hover{
+    background: rgb(49, 49, 49);
+    color: #ccc;
+    margin-bottom: 0;
+}
+
+.marksheet{
+    border: 1px solid black;
+    border-radius: 5px;
+    /* width: 500px; */
+    padding: 30px;
+    display: none;
+}
+.mark-title{
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    border-bottom: 2px solid red;
+}
+.marksheet dl{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.marksheet dl dt,
+.marksheet dl dd{
+    margin-bottom: 10px;
+}
+.marksheet dl dt{
+    font-weight: 700;
+}
+.mark-table{
+    width: 400px;
+    border-spacing: 0;
+    margin: 0px auto;
+}
+.mark-table td,
+.mark-table th{
+    border: 1px solid black;
+    text-align: center;
+}
