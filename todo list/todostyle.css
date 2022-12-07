@@ -8,6 +8,11 @@ body{
     background: #fcfcfc;
 }
 
+#top-alert{
+    background: navy;
+    color: #fcfcfc;
+    text-align: center;
+}
 /* nav menu */
 nav{
     background: #000;
