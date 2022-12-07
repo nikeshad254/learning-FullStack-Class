@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+body{
+    background: #fcfcfc;
+}
+
+/* nav menu */
+nav{
+    background: #000;
+    color: #fcfcfc;
+    padding: 5px 0px;
+    display: flex;
+    justify-content: center;
+}
+nav .title{
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* nav menu ends */
+.adders{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* border: 1px solid red; */
+    padding: 10px 0px;
+}
+.adders > input{
+    width: 350px;
+    height: 30px;
+    font-size: 1rem;
+    padding: 3px 10px;
+    border: 2px solid brown;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+.adders > button{
+    background: brown;
+    color: #fcfcfc;
+    border: none;
+    border-radius: 10px;
+    padding: 7px 20px;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+.adders > button:hover{
+    background: rgb(122, 31, 31);
+}
+
+/* table of task */
+.task-wrapper{
+    display: flex;
+    justify-content: center;
+}
+.task-table{
+    width: 80vw;
+    /* border: 1px solid navy; */
+    border-spacing: 0;
+}
+.task-table td,
+.task-table th{
+    border: 1px solid navy;
+    text-align: center;
+    padding: 5px 0px;
+}
+.btn{
+    padding: 7px 25px;
+    border: none;
+    color: #fcfcfc;
+    background: rgb(145, 24, 24);
+    border-radius: 10px;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+.btns :nth-child(1){
+    background: rgb(5, 60, 123);
+}
+.btn:hover{
+    background: rgb(156, 252, 168);
+    color: navy;
+    /* border: 1px solid navy; */
+}
+.btns{
+    width: 250px;
+}
+.task-text{
+    width: 800px;
+}

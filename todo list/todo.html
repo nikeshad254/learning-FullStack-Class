@@ -5,8 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
+    <link rel="stylesheet" href="todostyle.css">
 </head>
 <body>
+    <nav>
+        <h3 class="title">My Todo</h3>
+    </nav>
+
+    <div class="adders">
+        <input type="text" name="task" id="addTask">
+        <button id="addTaskBtn">Add Task</button>
+    </div>
+
+    <div class="task-wrapper">
+        <table class="task-table" id="task-table">
+            <thead>
+                <th>Mark</th>
+                <th>Your Task</th>
+                <th>Remarks</th>
+            </thead>
     
+            <tbody id="tasks">
+                <tr>
+                    <td><input type="checkbox" name="done" id="done"></td>
+                    <td class="task-text">Yourskd ksdjs dksjd skdjs dksjd skdj</td>
+                    <td class="btns">
+                        <button class="btn">Edit</button>
+                        <button class="btn">Remove</button>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td><input type="checkbox" name="done" id="done"></td>
+                    <td>Yourskd ksdjs dksjd skdjs dksjd skdj</td>
+                    <td class="btns">
+                        <button class="btn">Edit</button>
+                        <button class="btn">Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="todo.js"></script>
 </body>
 </html>
