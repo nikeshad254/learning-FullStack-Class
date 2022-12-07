@@ -12,6 +12,9 @@ body{
     background: navy;
     color: #fcfcfc;
     text-align: center;
+    position: absolute;
+    width: 100vw;
+    z-index: 200;
 }
 /* nav menu */
 nav{
@@ -95,4 +98,40 @@ nav .title{
 }
 .task-text{
     width: 800px;
+}
+
+/* edit task starts here */
+.editTask{
+    /* border: 2px solid red; */
+    background: #fcfcfc;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.editTask p{
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+.editTask .edit{
+    width: 400px;
+    /* height: 25px; */
+    margin-bottom: 30px;
+    padding: 5px 10px;
+    font-size: 1rem;
+}
+.editTask .edit .btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+#changeBtn{
+    margin-right: 50px;
 }

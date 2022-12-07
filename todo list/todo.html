@@ -21,14 +21,14 @@
     <div class="task-wrapper">
         <table class="task-table" id="task-table">
             <thead>
-                <th>Mark</th>
+                <th>S.N.</th>
                 <th>Your Task</th>
                 <th>Remarks</th>
             </thead>
     
             <tbody id="tasks">
                 <tr>
-                    <td><input type="checkbox" name="done" id="done"></td>
+                    <td>S.N.</td>
                     <td class="task-text">Yourskd ksdjs dksjd skdjs dksjd skdj</td>
                     <td class="btns">
                         <button class="btn editBtn">Edit</button>
@@ -48,6 +48,16 @@
         </table>
     </div>
 
+    
+    <div class="editTask" id="editTask">
+        <p>Edit the task: </p>
+        <input type="text" class="edit" name="edit" id="editInp" value="this is value">
+        <div class="btns">
+            <button class="btn" id="changeBtn">Okay</button>
+            <button class="btn" id="cancelBtn">Cancel</button>
+        </div>
+    </div>
+    
     <script src="todo.js"></script>
 </body>
 </html>
