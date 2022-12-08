@@ -111,6 +111,7 @@ addBtn.addEventListener("click", ()=>{
         localStorage.setItem(key, task)
         throwAlert(1, "Task Addition Sucessfull");
         updateTask();
+        inpTask.value="";
     }
     else{
         throwAlert(0, "Empty Failed to add task");
