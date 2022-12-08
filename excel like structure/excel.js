@@ -45,7 +45,7 @@ htmlSelect.addEventListener("change", ()=>{
 });
 
 function changeMe(key, el){
-    console.log(el.id);
+    // console.log(el.id);
     let cp = document.getElementById(`${key}cp`);
     let sp = document.getElementById(`${key}sp`);
     let ans = document.getElementById(`${key}ans`);
@@ -80,7 +80,7 @@ function throwAlert(state, message){
 addBtn.addEventListener("click", ()=>{
     updateTable();
     let cpLength = cpClass.length;
-    console.log(cpLength);
+    // console.log(cpLength);
     let inHtml = tbody.innerHTML;
     if(cpLength !== localStorage.length){
         throwAlert(0, "Error, fill those input first");
@@ -98,8 +98,8 @@ addBtn.addEventListener("click", ()=>{
         inHtml += `
         <tr>
             <td>${cpClass.length+1}</td>
-            <td><input type="number" class="cp" id="${key}cp" value="0" oninput="changeMe('${key}', this)"></td>
-            <td><input type="number" class="sp" id="${key}sp" value="0" oninput="changeMe('${key}', this)"></td>
+            <td><input type="number" class="cp" id="${key}cp" placeholder="0" oninput="changeMe('${key}', this)"></td>
+            <td><input type="number" class="sp" id="${key}sp" placeholder="0" oninput="changeMe('${key}', this)"></td>
             <td id="${key}ans">NaN</td>
         </tr>
         `;
