@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-spacing: 0;
+}
+.alert-space{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    display: none;
+    background: green;
+    justify-content: center;
+}
+#alert{
+    color: #fcfcfc;
+    font-size: 1.2rem;
+    padding: 3px 0px;
+}
+.nav-space{
+    background: #000;
+    color: #fcfcfc;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    padding: 5px 0px;
+}
+/* nav ends now  */
+.excel-wrapper{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.excel-table{
+    /* width: 80vw; */
+}
+.excel-table th,
+.excel-table td{
+    border: 0.5px solid navy;
+    text-align: center;
+    padding: 5px 10px;
+}
+.excel-table th select{
+    width: 100px;
+    text-align: center;
+    height: 25px;
+    border: 1px solid navy;
+    border-radius: 5px;
+    /* padding: 5px 20px; */
+}
