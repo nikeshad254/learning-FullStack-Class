@@ -17,6 +17,7 @@
     color: #fcfcfc;
     font-size: 1.2rem;
     padding: 3px 0px;
+    letter-spacing: 2px;
 }
 .nav-space{
     background: #000;
@@ -33,13 +34,16 @@
     margin-top: 30px;
 }
 .excel-table{
-    /* width: 80vw; */
+    min-width: 50vw;
 }
 .excel-table th,
 .excel-table td{
     border: 0.5px solid navy;
     text-align: center;
     padding: 5px 10px;
+}
+.cp, .sp{
+    text-align: center;
 }
 .excel-table th select{
     width: 100px;
@@ -48,4 +52,21 @@
     border: 1px solid navy;
     border-radius: 5px;
     /* padding: 5px 20px; */
+}
+#addBtn{
+    padding: 7px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 10px;
+    background: yellow;
+    color: navy;
+    position: absolute;
+    right: 15vw;
+    top: 70px;
+}
+#addBtn:hover{
+    background: rgb(137, 137, 3);
+    color: #fcfcfc;
 }
