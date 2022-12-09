@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Selector in JS</title>
+    <style>
+        button{
+            display: block;
+            margin-bottom: 10px;
+            font-size: 20px;
+            background: #000;
+            color: #fcfcfc;
+            cursor: pointer;
+            padding: 5px 10px;
+            outline: none;
+            border: none;
+            border-radius: 3px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    
+    <button class="btn red" onclick="color(`red`,this)">Click to change to red</button>
+    <button class="btn green" onclick="color(`green`,this)">Click to change to green</button>
+    <button class="btn blue" onclick="color(`blue`,this)">Click to change to blue</button>
+    <button class="btn reset" onclick="reset()">Click to change to reset</button>
+
+    <script>
+        let btns = document.getElementsByClassName("btn");
+        function color(type, el){
+            el.style.background = type;
+        }
+        function reset(){
+            for(let i =0; i<btns.length; i++){
+                btns[i].style.background = "#000";
+            }
+        }
+        
+    </script>
+</body>
+</html>
