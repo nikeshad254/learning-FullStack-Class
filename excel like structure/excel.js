@@ -78,8 +78,8 @@ function throwAlert(state, message){
 }
 
 addBtn.addEventListener("click", ()=>{
-    updateTable();
     let cpLength = cpClass.length;
+    updateTable();
     // console.log(cpLength);
     let inHtml = tbody.innerHTML;
     if(cpLength !== localStorage.length){
