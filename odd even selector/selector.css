@@ -22,6 +22,7 @@ body{
     background: #9007e1;
     color: #fcfcfc;
     border-radius: 5px;
+    cursor: pointer;
 }
 .number-wrapper{
     /* background: #9007e1; */
