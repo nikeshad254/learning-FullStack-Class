@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic creation</title>
+</head>
+<body>
+    <ul></ul><br>
+    <input type="text" id="textInp">
+    <button onclick="add()">Add</button>
+
+    <script>
+        let ul = document.querySelector("ul");
+        let textInp = document.getElementById("textInp");
+        function add(){
+            if(textInp.value.length<1){
+                return 0;
+            }
+            let li = document.createElement("li");
+            li.textContent = textInp.value;
+            ul.appendChild(li);
+            textInp.value="";
+            li.addEventListener("click", ()=>{
+                li.remove();
+            })
+        }
+    </script>
+</body>
+</html>
