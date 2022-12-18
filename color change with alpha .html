@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color change and alpha</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 100vw;
+            min-height: 100vh;
+        }
+        #text{
+            font-size: 30rem;
+        }
+    </style>
+</head>
+<body>
+    <p id="text">A</p>
+
+    <script>
+        let alphabate = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+        let text = document.getElementById("text");
+        setInterval(()=>{
+            let rand = Math.floor(Math.random() * alphabate.length);
+            text.textContent = alphabate[rand];
+
+            document.body.style.background = `rgb(${Math.floor(Math.random() * 255)},
+                                                ${Math.floor(Math.random() * 255)},
+                                                ${Math.floor(Math.random() * 255)})`;
+        }, 1000);
+    </script>
+</body>
+</html>
