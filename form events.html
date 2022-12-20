@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form events</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html{
+            font-size: 62.5%;
+        }
+        body{
+            line-height: 1.6;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: #fff;
+        }
+        .form-group{
+            background: rgb(34, 91, 61);
+            font-size: 2rem;
+            margin: 0 auto;
+            width: 70%;
+            padding: 1rem 2rem;
+        }
+        .inputName{
+            border: none;
+            background: none;
+            border-bottom: 2px dotted #ccc;
+            margin-left: 1rem;
+            outline: none;
+            font-size: inherit;
+            color: #ccc;
+        }
+        .btnSubmit{
+            padding: 1rem 2.5rem;
+            margin-top: 1.5rem;
+            font-size: inherit;
+            font-weight: bold;
+            outline: none;
+            border: none;
+            border-radius: 3px;
+            background: rgb(4, 56, 10);
+            color: rgb(18, 206, 93);
+            cursor: pointer;
+        }
+        .btnSubmit:hover{
+            background: rgb(2, 123, 39);
+        }
+        .display{
+            margin-top: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" class="form-group">
+        <label for="nameLabel">Enter your name</label>
+        <input type="text" name="nameLabel" class="inputName" id="nameLabel"><br>
+        <input type="submit" value="Sign Up" class="btnSubmit">
+        <p class="display">Hello</p>
+    </form>
+
+    <script>
+        var form = document.querySelector(".form-group");
+        var inputName = document.querySelector(".inputName");
+        var btnSubmit = document.querySelector(".btnSubmit");
+        var display = document.querySelector(".display");
+
+        form.addEventListener("submit", (e)=>{
+            event.preventDefault(); 
+            console.log(e);
+            display.textContent = inputName.value;
+
+        });
+        inputName.addEventListener("input", function(e){
+            display.textContent = inputName.value;
+        })
+        inputName.addEventListener("focus", (e)=>{
+            e.target.style.background = "red";
+        })
+    </script>
+</body>
+</html>
