@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Increment and decrement</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 100vw;
+            min-height: 100vh;
+        }
+        .container{
+            border: 1px solid red;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+        }
+        .circle{
+            background: none;
+            width: 200px;
+            height: 200px;
+            margin-bottom: 100px;
+            border-radius: 50%;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 6rem;
+        }
+        .buttons button{
+            width: 100px;
+            padding: 10px;
+            border: none;
+            background: #fcfcfc;
+            margin: 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        .buttons button:hover{
+            background: #8a8989;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="circle">0</div>
+        <div class="buttons">
+            <button id="incr" onclick="calc(this)">Increment</button>
+            <button id="reset" onclick="calc(this)">Reset</button>
+            <button id="decr" onclick="calc(this)">decrement</button>
+
+        </div>
+    </div>
+
+    <script>
+        let num = 0;
+        let display = document.querySelector(".circle");
+        function calc(e){
+            if(e.id==="incr"){
+                num++;
+                display.style.background = "green";
+            }
+            if(e.id ==="decr"){
+                num--;
+                display.style.background = "red";
+            }
+            if(e.id === "reset"){
+                num = 0;
+                display.style.background = "none";
+            }
+            display.textContent = num;
+        }
+
+    </script>
+</body>
+</html>
