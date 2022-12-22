@@ -59,9 +59,9 @@
     <div class="container">
         <div class="circle">0</div>
         <div class="buttons">
-            <button id="incr" onclick="calc(this)">Increment</button>
-            <button id="reset" onclick="calc(this)">Reset</button>
-            <button id="decr" onclick="calc(this)">decrement</button>
+            <button onclick="calc(1)">Increment</button>
+            <button onclick="calc(3)">Reset</button>
+            <button onclick="calc(2)">decrement</button>
 
         </div>
     </div>
@@ -70,18 +70,9 @@
         let num = 0;
         let display = document.querySelector(".circle");
         function calc(e){
-            if(e.id==="incr"){
-                num++;
-                display.style.background = "green";
-            }
-            if(e.id ==="decr"){
-                num--;
-                display.style.background = "red";
-            }
-            if(e.id === "reset"){
-                num = 0;
-                display.style.background = "none";
-            }
+            (e==3)? (num=0)&&(display.style.background="none") : (e==1) ? (num+=1) && (display.style.background = "green") :  (num-=1) &&  (display.style.background = "red");
+            //(e==3)? : (e==1) ?  :  ;
+            num = (num<0)? 0: num;
             display.textContent = num;
         }
 
