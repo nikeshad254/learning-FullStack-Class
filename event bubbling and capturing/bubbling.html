@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        .box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body class="box">body
+    <div class="box">div
+        <p class="box">
+            para
+        </p>
+    </div>
+
+    <script>
+        //top to bottom means capturing
+        //bottom to top means bubbling in DOM traversal
+        let n = 1;
+        let boxed = document.getElementsByClassName("box");
+        for(let i=0; i<boxed.length; i++){
+            boxed[i].addEventListener("click", (e)=>{
+                console.log("your click on => "+e.currentTarget.tagName);
+                let el = e.currentTarget;
+                let sec = 1000*n;
+                n+=1;
+                setTimeout(()=>{
+                    el.style.border = "3px solid green";
+                }, sec);
+            }, true);
+        }
+            
+    </script>
+</body>
+</html>
