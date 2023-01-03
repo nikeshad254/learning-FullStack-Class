@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event deligation</title>
+  <style>
+    #delegation_table td {
+      width: 150px;
+      height: 150px;
+      background: #ccc;
+      text-align: center;
+    }
+
+    #delegation_table td.highlight {
+      background: red;
+    }
+  </style>
+</head>
+
+<body>
+  <table id="delegation_table">
+    <th colspan="2"><em>Delegation</em>Table: Click to change Color</th>
+
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+
+    <tr>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+
+    <tr>
+      <td>7</td>
+      <td>8</td>
+      <td>9</td>
+    </tr>
+  </table>
+
+  <script>
+    var selectedElement = null;
+    const table = document.querySelector("#delegation_table");
+    table.addEventListener("click", changeColor);
+    function changeColor(e) {
+      let target = e.target;
+      if (target.tagName != 'TD') {
+        return;
+      }
+      else {
+        highlight(target);
+      }
+      //target.style.background = "red";
+    }
+
+    function highlight(node) {
+      if (selectedElement != null) {
+        selectedElement.classList.remove('highlight');
+      }
+      selectedElement = node;
+      selectedElement.classList.add('highlight');
+    }
+  </script>
+</body>
+
+</html>
