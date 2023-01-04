@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Delegation</title>
+    <style>
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            bottom: 400px;
+            left: 20px;
+        }
+        .container button{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main-contain">
+        <h3>Todo List</h3>
+        <ul id="display">
+            <li>one</li>
+        </ul>
+    
+        <div class="container">
+            <input type="text">
+            <button>click to add</button>
+        </div>
+    </div>
+
+    <script>
+        let main = document.getElementById("main-contain");
+        main.addEventListener("click", clicked);
+
+        function clicked(e){
+            target = e.target;
+            if(target.tagName!="LI" && target.tagName!="BUTTON")
+                return
+            if(target.tagName == "LI")
+                removeLi(target);
+            else
+                addLI(document.querySelector("input"));
+        }
+
+        function removeLi(node){
+            node.remove();
+        }
+
+        function addLI(node){
+            let inpVal = node.value;
+            if(inpVal.length>0){
+                let li = document.createElement("li");
+                li.textContent = inpVal;
+                document.querySelector("#display").appendChild(li);
+                node.value = "";
+            }
+        }
+    </script>
+</body>
+</html>
