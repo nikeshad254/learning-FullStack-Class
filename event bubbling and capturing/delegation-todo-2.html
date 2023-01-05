@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo 2</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #fff;
+        }
+        ul{
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            /* border: 1px solid red; */
+            margin: 0 auto;
+            width: 30%;
+            padding: 10px;
+            background: #ecccff;
+        }
+        ul li {
+            display: flex;
+            justify-content: space-between;
+            background: rgb(101, 12, 112);
+            padding: 5px;
+            font-size: 1.3rem;
+        }
+        ul li:hover{
+            opacity: 0.9;
+        }
+        ul li span{
+            display: flex;
+            align-items: center;
+        }
+        button{
+            background: transparent;
+            color: #fff;
+            background: #d026d6;
+            font-size: 0.9rem;
+            border: 1px solid #fff;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 10px;
+            margin: 10px;
+        }
+        button:hover{
+            background: #8e1a92;
+        }
+        span input{
+            padding: 10px;
+            color: #8e1a92;
+            font-size: 1rem;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <ul>
+            <li><span><input type="text" class="addInp"></span> <span><button class="add">Add</button></span></li>
+            <li><span class="content">Orange</span><span><button class="delete">Delete</button> <button class="edit">Edit</button></span></li>
+            <li><span class="content">Green</span><span><button class="delete">Delete</button> <button class="edit">Edit</button></span></li>
+        </ul>
+    </div>
+
+    <script>
+        let ul = document.querySelector("ul");
+        ul.addEventListener("click",(e)=>{
+            var target = e.target;
+            console.log(target.className);
+
+            if(target.className === "delete"){
+                target.parentNode.parentNode.remove();
+            }
+            if(target.className === "edit"){
+                const li = target.parentNode.parentNode.firstChild;
+                let str = li.textContent;
+                li.innerHTML = `<input class="editInput" type="text">`;
+                li.firstChild.value = str;
+                li.addEventListener("keypress", (e)=>{
+                    
+                    const val = e.target.value;
+                    
+                    if(e.keyCode == 13){
+                        
+                        li.innerHTML = val;
+                    }
+                }) 
+            }
+            if(target.className === "add"){
+                let input = target.parentNode.parentNode.firstChild.firstChild;
+                console.log(input);
+                if(input.value.length>0){
+                    ul.innerHTML += `<li><span class="content">${input.value}</span><span><button class="delete">Delete</button> <button class="edit">Edit</button></span></li>`
+                }
+            }
+        })
+    </script>
+</body>
+</html>
