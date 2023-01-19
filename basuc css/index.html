@@ -6,21 +6,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+        }
+        /* first image container */
         .first-img{
             height: 100vh;
-            background: linear-gradient(45deg, rgba(255, 0, 0, 0.521), rgba(0, 0, 255, 0.515)), url(PicsArt_10-28-11.02.08.png);
+            background: linear-gradient(45deg, rgba(0, 102, 255, 0.321), rgba(0, 255, 81, 0.231)), url(2021-08-26_16.06.47.png);
             background-repeat: no-repeat;
-
+            background-size: cover;
+            
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center;
+            align-items: center; */
         }
+
+        /* main nav division for navigation */
+        .main-nav{
+            background: tomato;
+            height: 5vh;
+            display: flex;
+            align-items: center;
+            justify-content: right;
+        }
+        .main-nav ul {
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            margin-right: 20px;
+            /* justify-content: right; */
+        }
+        .main-nav li a{
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            padding: 3px 10px;
+            font-size: 1.3rem;
+        }
+
+        /* secont div container-btns  */
         .first-img h1{
             color: white;
+            border-bottom: 5px solid tomato;
+        }
+        .first-img button{
+            color: white;
+            background: tomato;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 5px 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            letter-spacing: 2px;
+
+        }
+        .container-btns{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 95vh;
+            
         }
     </style>
 </head>
 <body>
     
+    
     <div class="first-img">
-        <h1>Kehi kura</h1>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="container-btns">
+            <h1>MineCraft House Tutorial</h1>
+            <button>Learn Now!!</button>
+        </div>
     </div>
 </body>
 </html>
