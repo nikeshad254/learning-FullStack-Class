@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat+Alternates:wght@400;500;700;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    font-family: 'Lato', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    font-size: 2rem;
+    font-weight: 500;
+}
+nav{
+    background-color: #ffcccc;
+}
+ul{
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    max-width: 110rem;
+    /* border: 2px solid black; */
+}
+a{
+    color: #000;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+}
+a:hover{
+    background-color: #ffc7bd;
+}
+.hero{
+    background-image: url(pexels-ella-olsson-1640777.jpg);
+    height: 80vh;
+    background-size: cover;
+    position: relative;
+}
+.hero p{
+    background-color: #fff;
+    position: absolute;
+    top: 80%;
+    left: 10%;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 10px;
+}
