@@ -1,18 +1,21 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-.main-box{
+
+.main-box {
     height: 100svh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgb(2,0,36);
-    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 60%, rgba(0,212,255,1) 100%);
+    /* background: rgb(2, 0, 36);
+    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 60%, rgba(0, 212, 255, 1) 100%); */
+    background: none;
 }
-.img-box{
+
+.img-box {
     border: 3px solid #fff;
     background: gray;
     z-index: 100;
@@ -20,9 +23,13 @@
     width: 25rem;
     border-radius: 0.5rem;
 }
-.content{
+
+.content {
     transition: 0.3s ease;
-    background: #000;
+    /* background: #000; */
+    background: rgb(2, 0, 36);
+    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 60%, rgba(0, 212, 255, 1) 100%);
+ 
     border: 2px solid #fff;
     color: aliceblue;
     width: 40rem;
@@ -33,13 +40,16 @@
     align-items: center;
     transform: translateY(-1.5rem);
 }
-.content h3{
+
+.content h3 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
     margin-top: 2rem;
-    
+
 }
-.content button{
+
+.content button {
+    background: #76b1ff;
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
@@ -47,10 +57,43 @@
     margin-left: 2rem;
     cursor: pointer;
 }
-.content button:hover{
-    outline: 5px solid green;
+
+.content button:hover {
+    outline: 5px solid rgb(217, 63, 2);
     transition: 0.3s ease-in;
 }
-.playBtn{
+
+.playBtn {
     display: none;
+}
+
+.bg {
+    animation: slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, rgb(49, 138, 255) 50%, rgb(114, 0, 160) 50%);
+    bottom: 0;
+    left: -50%;
+    opacity: .5;
+    position: fixed;
+    right: -50%;
+    top: 0;
+    z-index: -1;
+}
+
+.bg2 {
+    animation-direction: alternate-reverse;
+    animation-duration: 4s;
+}
+
+.bg3 {
+    animation-duration: 5s;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(-25%);
+    }
+
+    100% {
+        transform: translateX(25%);
+    }
 }

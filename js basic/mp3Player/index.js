@@ -10,6 +10,7 @@ const audioHtmlName = document.querySelector("#audioHtmlName");
 var playing = false;
 var audioNum = 2;
 var audioPlaying = document.getElementById("myAudio");
+audioPlaying.loop = true
 
 function changedAudio() {
   thumbnailImg.src = `audios/${audioName[audioNum]}.jpg`;
