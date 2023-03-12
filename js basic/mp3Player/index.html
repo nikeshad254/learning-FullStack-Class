@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Player</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <div class="main-box">
+
+        <img src="#" alt="" class="img-box" id="imgBox">
+        <audio id="myAudio" src="audios/champion.mp3"></audio>
+        <div class="content">
+            <h3 id="audioHtmlName">Name of the Box</h3>
+            <div class="buttons">
+                <button id="left">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                            d="M6.5 18q-.425 0-.713-.288Q5.5 17.425 5.5 17V7q0-.425.287-.713Q6.075 6 6.5 6t.713.287Q7.5 6.575 7.5 7v10q0 .425-.287.712Q6.925 18 6.5 18Zm10.45-1.025l-6.2-4.15q-.45-.3-.45-.825q0-.525.45-.825l6.2-4.15q.5-.325 1.025-.038q.525.288.525.888v8.25q0 .6-.525.9q-.525.3-1.025-.05Z" />
+                    </svg>
+                </button>
+                <button id="play">
+                    <svg class="playBtn" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                            d="m9.5 16.5l7-4.5l-7-4.5ZM12 22q-2.075 0-3.9-.788q-1.825-.787-3.175-2.137q-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175q1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138q1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175q-1.35 1.35-3.175 2.137Q14.075 22 12 22Z" />
+                    </svg>
+
+                    <svg class="pauseBtn" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                            d="M10 16q.425 0 .713-.288Q11 15.425 11 15V8.975q0-.425-.287-.7Q10.425 8 10 8t-.712.287Q9 8.575 9 9v6.025q0 .425.288.7Q9.575 16 10 16Zm4 0q.425 0 .713-.288Q15 15.425 15 15V8.975q0-.425-.287-.7Q14.425 8 14 8t-.712.287Q13 8.575 13 9v6.025q0 .425.288.7q.287.275.712.275Zm-2 6q-2.075 0-3.9-.788q-1.825-.787-3.175-2.137q-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175q1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138q1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175q-1.35 1.35-3.175 2.137Q14.075 22 12 22Z" />
+                    </svg>
+                </button>
+                <button id="right"><svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                            d="M17.5 18q-.425 0-.712-.288q-.288-.287-.288-.712V7q0-.425.288-.713Q17.075 6 17.5 6t.712.287q.288.288.288.713v10q0 .425-.288.712q-.287.288-.712.288ZM7.05 16.975q-.5.35-1.025.05q-.525-.3-.525-.9v-8.25q0-.6.525-.888q.525-.287 1.025.038l6.2 4.15q.45.3.45.825q0 .525-.45.825Z" />
+                    </svg></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
