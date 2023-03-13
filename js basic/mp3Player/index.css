@@ -5,6 +5,7 @@
 }
 
 .main-box {
+    flex: 1 1 80%;
     height: 100svh;
     display: flex;
     flex-direction: column;
@@ -22,6 +23,11 @@
     height: 17rem;
     width: 25rem;
     border-radius: 0.5rem;
+}
+
+.wholeContent{
+    display: flex;
+
 }
 
 .content {
@@ -96,4 +102,32 @@
     100% {
         transform: translateX(25%);
     }
+}
+
+.lists{
+    flex: 1 1 30%;
+    border-left: 2px solid rgba( 255, 255, 255, 0.18 );
+    padding: 1rem;
+    background: rgba( 255, 255, 255, 0.25 );
+    backdrop-filter: blur( 7px );
+}
+
+.lists h3{
+    font-size: 4rem;
+    color: #fff;
+    display: inline-block;
+    border-bottom: 0.5rem solid rgb(77, 1, 255);
+}
+
+.lists ul li{
+    list-style: none;
+    display: inline-block;
+    width: 24rem;
+    border: 2px solid rgba( 255, 255, 255, 0.18 );
+    background: rgba( 255, 255, 255, 0.25 );
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
 }
