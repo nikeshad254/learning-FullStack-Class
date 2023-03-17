@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disply Time</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h2 class="heading">
+        Calendar of the Day
+    </h2>
+
+    <div class="box">
+        <h5>Year</h5>
+        <p id="year">2020</p>
+    </div>
+
+    <div class="box">
+        <h5>Month</h5>
+        <p id="month">01</p>
+    </div>
+
+    <div class="box">
+        <h5>Day</h5>
+        <p id="day">01</p>
+    </div>
+
+    <div class="box">
+        <h5>Hour</h5>
+        <p id="hour">00</p>
+    </div>
+
+    <div class="box">
+        <h5>Minute</h5>
+        <p id="minute">00</p>
+    </div>
+
+    <div class="box">
+        <h5>Second</h5>
+        <p id="second">00</p>
+    </div>
+
+    <script>
+        const year = document.getElementById("year")
+        const month = document.getElementById("month");
+        const day = document.getElementById("day");
+        const hour = document.getElementById("hour");
+        const minute = document.getElementById("minute");
+        const second = document.getElementById("second");
+
+        
+        
+        const interVal = setInterval((e) => {
+            let d = new Date();
+            year.innerHTML = d.getFullYear();
+            month.innerHTML = d.getMonth() + 1;
+            day.innerHTML = d.getDate()
+            hour.innerHTML = d.getHours()
+            minute.innerHTML = d.getMinutes()
+            second.innerHTML = d.getSeconds()
+            second.classList.toggle('active')
+        }, 1000)
+
+    </script>
+</body>
+
+</html>
