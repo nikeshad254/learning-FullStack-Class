@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    First Name: <input type="text" id="fname"> <br><br>
+    Last Name: <input type="text" id="lname"> <br><br>
+    <button class="btn">Submit</button>
+
+    <p class="display"></p>
+
+    <script>
+        let fname = document.getElementById('fname')
+        let lname = document.getElementById('lname')
+        let btn =document.querySelector('.btn')
+        let display =document.querySelector('.display')
+
+        btn.addEventListener('click', ()=>{
+            let dis = fname.value.concat(lname.value)
+            display.innerHTML = dis;
+
+        })
+    </script>
+</body>
+</html>
