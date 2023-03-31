@@ -1,19 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SideMenu</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        #mainNav {
+            height: 100svh;
+            background-color: rgb(131, 255, 255);
+            width: 2.5rem;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* padding-top: 5rem; */
+            transition: 0.3s ease-in-out;
+        }
+
+        #mainNav p {
+            display: none;
+        }
+
+        #mainNav.active {
+            padding: 20px;
+            width: fit-content;
+            transition: 0.3s ease-in-out;
+        }
+
+        #mainNav.active p {
+            display: block;
+        }
+
+        nav .menuTxt {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            position: absolute;
+            top: 1.2rem;
+            left: 1rem;
+        }
+
+        nav ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            list-style: none;
+        }
+
+        #mainNav.active ul li {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        #ham {
+            position: absolute;
+            top: 1rem;
+            right: 0.2rem;
+        }
+
+        .menu {
+            display: none;
+        }
+    </style>
 </head>
+
 <body>
-    <nav>
+    <nav id="mainNav" class="active">
+        <p class="menuTxt">Menu</p>
+        <div id="ham">
+            <svg class="cross" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 21 21">
+                <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                    transform="translate(2 2)">
+                    <circle cx="8.5" cy="8.5" r="8" />
+                    <path d="m5.5 5.5l6 6m0-6l-6 6" />
+                </g>
+            </svg>
+        </div>
         <ul>
-            <li>Menu</li>
-            <li>Home</li>
-            <li>About</li>
-            <li>Contact</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M6 21q-.825 0-1.413-.588T4 19v-9q0-.475.213-.9t.587-.7l6-4.5q.275-.2.575-.3T12 3.5q.325 0 .625.1t.575.3l6 4.5q.375.275.588.7T20 10v9q0 .825-.588 1.413T18 21h-4v-7h-4v7H6Z" />
+                </svg>
+                <p>Home</p>
+            </li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M13 9h-2V7h2m0 10h-2v-6h2m-1-9A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2Z" />
+                </svg>
+                <p>About</p>
+            </li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M12 12.95v-9q0-.425.288-.712T13 2.95h7q.425 0 .713.288T21 3.95v5q0 .425-.288.713T20 9.95h-5l-3 3ZM19.95 21q-3.225 0-6.288-1.438t-5.425-3.8q-2.362-2.362-3.8-5.425T3 4.05q0-.45.3-.75t.75-.3H8.1q.35 0 .625.225t.325.575l.65 3.5q.05.35-.013.638T9.4 8.45L7 10.9q1.05 1.8 2.625 3.375T13.1 17l2.35-2.35q.225-.225.588-.337t.712-.063l3.45.7q.35.075.575.338T21 15.9v4.05q0 .45-.3.75t-.75.3Z" />
+                </svg>
+                <p>Contact</p>
+            </li>
         </ul>
     </nav>
+
+    <script>
+        const hamSVG = [
+            `<svg class="cross" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" transform="translate(2 2)"><circle cx="8.5" cy="8.5" r="8"/><path d="m5.5 5.5l6 6m0-6l-6 6"/></g></svg>`,
+            `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="currentColor" d="M4 18h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zm0-5h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zM3 7c0 .55.45 1 1 1h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1z"/></svg>`
+        ]
+        const mainNav = document.getElementById('mainNav')
+        const ham = document.getElementById('ham')
+        function changer() {
+            mainNav.classList.toggle('active')
+            ham.innerHTML = (mainNav.className === 'active') ? hamSVG[0] : hamSVG[1];
+        }
+        ham.addEventListener('click', (e) => {
+            changer()
+        })
+        
+
+    </script>
 </body>
+
 </html>
