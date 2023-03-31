@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum</title>
+</head>
+<body>
+    First Num: <input type="number" id="fnum"/>
+    Second Num: <input type="number" id="snum"/>
+    <p>Result: <span id="result">click calculate</span> </p>
+    <button onclick="calc()">Calculate</button>
+
+    <script>
+        const fnum = document.getElementById("fnum")
+        const snum = document.getElementById("snum")
+        const result = document.getElementById("result")
+
+        fnum.focus()
+
+        function calc(){
+            if(fnum.value.length < 1 || snum.value.length < 1) 
+                return 0
+            result.innerHTML = Number.parseInt(fnum.value) + Number.parseInt(snum.value)
+        }
+    </script>
+</body>
+</html>

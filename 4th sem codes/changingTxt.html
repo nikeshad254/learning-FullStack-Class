@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>changingTxt</title>
+    <style>
+        .TEXTBOX{
+            width: 10rem;
+            border: 1px solid black;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <p class="TEXTBOX"></p>
+    <button onclick="changeTxt()">Change</button>
+
+    <script>
+        const paraArray = [
+            "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti, quibusdam, distinctio explicabo optio harum iste temporibus veritatis possimus laudantium commodi, veniam fuga rem eius?",
+            "Articles are used before nouns or noun equivalents and are a type of adjective. The definite article (the) is used before a noun to indicate that the identity ...",
+            "In English there are three articles: a, an, and the. Articles are used before nouns or noun equivalents and are a type of adjective. The definite article (the) is used before a noun to indicate that the identity of the noun is known to the reader. The indefinite article (a, an) is used before a noun that is general or when its identity is not known. There are certain situations in which a noun takes no article."
+        ]
+        const txtBox = document.querySelector(".TEXTBOX");
+
+        let i = 0;
+        function changeTxt(){
+            i++;
+            if(i==paraArray.length)
+                i=0
+            txtBox.textContent = paraArray[i];
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: fit-content;
+            align-items: center;
+        }
+        #display{
+            height: 10rem;
+            width: 10rem;
+            border: 1px solid black;
+            border-radius: 10px;
+            font-size: 5rem;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        button{
+            padding: 2px;
+            width: 3rem;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <p id="display">
+            0
+        </p>
+
+        <div class="buttons">
+            <button id="sub">-</button>
+            <button id="reset">reset</button>
+            <button id="add">+</button>
+        </div>
+    </div>
+
+
+    <script>
+        const display = document.querySelector("#display")
+        const buttons = document.querySelector(".buttons")
+        let counter = 0;
+
+        buttons.addEventListener("click", (e)=>{
+            console.log(e.target.id);
+            target = e.target;
+            if(target.id === "sub"){
+                counter--;
+            }
+            if(target.id === "add"){
+                counter++;
+            }
+            if(target.id === "reset"){
+                counter = 0;
+            }
+            display.textContent = counter;
+        }, false)
+
+        
+    </script>
+</body>
+</html>
