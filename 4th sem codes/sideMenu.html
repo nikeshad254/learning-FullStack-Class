@@ -117,11 +117,20 @@
         const mainNav = document.getElementById('mainNav')
         const ham = document.getElementById('ham')
         function changer() {
-            mainNav.classList.toggle('active')
             ham.innerHTML = (mainNav.className === 'active') ? hamSVG[0] : hamSVG[1];
         }
         ham.addEventListener('click', (e) => {
+            mainNav.classList.toggle('active')
             changer()
+        })
+
+        document.body.addEventListener('click', (e)=>{
+            if(e.target.tagName === "BODY"){
+                mainNav.classList.remove('active')
+                changer()
+
+            }
+            
         })
 
 
