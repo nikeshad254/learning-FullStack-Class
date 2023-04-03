@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Displayer</title>
+    <style>
+        input, button{
+            font-size: 1.3rem;
+        }
+        ul{
+            font-size: 1.5rem;
+        }
+        ul li span{
+            margin-left: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="enter item" id="addBox">
+    <button id="click">Click</button><br>
+
+    <ul id="listDisplayer">
+    </ul>
+
+
+    <script>
+        const listDisplayer = document.getElementById('listDisplayer')
+        const inp = document.getElementById('addBox')
+        const btn = document.getElementById('click')
+        function createElementCustom(tag, content, place){
+           let element = document.createElement(`${tag}`);
+           element.innerHTML = content;
+           place.appendChild(element)
+        }
+        // createElementCustom("p", "hello", listDisplayer)
+        btn.addEventListener("click", (e)=>{
+            console.log('hey')
+            if(inp.value.length>0){
+                createElementCustom('li', `${inp.value} <span onclick="removeThis(this)">X<span>`, listDisplayer)
+            }
+        })
+        function removeThis(e){
+            e.parentNode.remove()
+
+        }
+    </script>
+
+</body>
+</html>
