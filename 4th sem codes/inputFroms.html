@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input forms</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inputbox {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            width: fit-content;
+            position: relative;
+        }
+
+        .inputbox input {
+            width: 10rem;
+            height: 1.5rem;
+        }
+
+        .inputbox small {
+            position: absolute;
+            bottom: -10px;
+            right: 2rem;
+            color: red;
+        }
+
+        #submit {
+            margin-top: 2rem;
+            width: fit-content;
+            padding: 0.3rem 0.5rem;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="inputbox">
+        <p>First Name: </p>
+        <input type="text" name="fname" id="fname"><br><br>
+        <small id="fnameSmall"></small>
+    </div>
+
+    <div class="inputbox">
+        <p>Last Name:</p>
+        <input type="text" name="fname" id="lname"><br><br>
+        <small id="lnameSmall"></small>
+
+    </div>
+
+    <button name="submit" id="submit">Submit</button>
+
+
+    <script>
+        let fname = document.getElementById("fname")
+        let fnameSmall = document.getElementById("fnameSmall")
+        let lname = document.getElementById("lname")
+        let lnameSmall = document.getElementById("lnameSmall")
+        let submit = document.getElementById("submit")
+
+        function displayError(msg, place) {
+            place.textContent = msg;
+        }
+        function resetMsg(){
+            fnameSmall.innerHTML = "";
+            lnameSmall.innerHTML = "";
+        }
+
+        submit.addEventListener("click", () => {
+            resetMsg()
+
+            if (fname.value.length < 5) {
+                displayError("increase characters", fnameSmall)
+                if (fname.value.length < 1) {
+                    displayError("it is empty", fnameSmall)
+                }
+            }
+
+            if (lname.value.length < 5) {
+                displayError("increase characters", lnameSmall)
+                if (lname.value.length < 1) {
+                    displayError("it is empty", lnameSmall)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
