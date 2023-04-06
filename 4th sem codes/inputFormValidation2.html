@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input forms</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inputbox {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            width: fit-content;
+            position: relative;
+        }
+
+
+        .inputbox input {
+            width: 10rem;
+            height: 1.5rem;
+        }
+
+        .gender input,
+        .checkbox input {
+            width: 1.3rem;
+        }
+
+
+        .inputbox small {
+            position: absolute;
+            bottom: -10px;
+            right: 2rem;
+            color: red;
+        }
+
+        #submit {
+            margin-top: 2rem;
+            width: fit-content;
+            padding: 0.3rem 0.5rem;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="inputbox">
+        <p>User Name: </p>
+        <input class="textBox" type="text" name="uname" id="uname"><br><br>
+        <small id="unameSmall"></small>
+    </div>
+
+    <div class="inputbox">
+        <p>Password:</p>
+        <input class="textBox" type="password" name="password" id="password"><br><br>
+        <small id="passwordSmall"></small>
+    </div>
+
+    <div class="inputbox">
+        <p>Confrim Password: </p>
+        <input class="textBox" type="password" name="cPassword" id="cPassword"><br><br>
+        <small id="cPasswordSmall"></small>
+    </div>
+
+    <div class="inputbox">
+        <p>Phone:</p>
+        <input class="textBox" type="text" name="phone" id="phone"><br><br>
+        <small id="phoneSmall"></small>
+    </div>
+
+    <div class="inputbox gender">
+        <p>Gender:</p>
+
+        <input type="radio" class="genderV" name="gender" id="male">
+        male
+        <input type="radio" class="genderV" name="gender" id="female">
+        female
+
+        <small id="genderSmall"></small>
+    </div>
+
+    <div class="inputbox">
+        <p>Country:</p>
+        <select name="country" id="country">
+            <option value="nepal">Nepal</option>
+            <option value="america">america</option>
+            <option value="india">india</option>
+        </select>
+        <small id="countrySmall"></small>
+    </div>
+
+    <div class="inputbox checkbox">
+        <p>Program:</p>
+        BBM <input type="checkbox" class="program" name="program" id="BBM" value="BBM">
+        BCA <input type="checkbox" class="program" name="program" id="BCA" value="BCA">
+        BIT <input type="checkbox" class="program" name="program" id="BIT" value="BIT">
+        <small id="checkboxSmall"></small>
+    </div>
+
+    <button name="submit" id="submit">Submit</button>
+
+
+    <script>
+        let inputBox = document.querySelectorAll(".textBox")
+        let phone = document.querySelector('#phone')
+        let gender = document.querySelectorAll('.genderV')
+        let program = document.querySelectorAll('.program')
+        let country = document.querySelector("#country");
+        let submitBtn = document.querySelector("#submit");
+
+        function displayErrorInSmall(msg, topPlace) {
+            let small = topPlace.parentNode.getElementsByTagName('small')
+            small[0].textContent = msg;
+        }
+
+        function resetAllSmall() {
+            let small;
+            for (let i = 0; i < inputBox.length; i++) {
+                small = inputBox[i].parentNode.getElementsByTagName('small');
+                small[0].textContent = "";
+            }
+            small = gender[0].parentNode.getElementsByTagName('small');
+            small[0].textContent = "";
+
+            small = program[0].parentNode.getElementsByTagName('small')
+            small[0].textContent = ""
+        }
+
+        function hasNum(str) {
+            for (let i = 0; i < str.length; i++) {
+                const charCode = str.charCodeAt(i);
+                if (charCode >= 48 && charCode <= 57) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function hasSpecialChar(str) {
+            // specialChars  ==> !@#$%^&*()_+-=[]{};':\"\\|,.<>/?`~
+            for (let i = 0; i < str.length; i++) {
+                const charCode = str.charCodeAt(i);
+                if ((charCode >= 33 && charCode <= 47) || (charCode >= 58 && charCode <= 64) || (charCode >= 91 && charCode <= 96) || (charCode >= 123 && charCode <= 126)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        phone.addEventListener("keypress", (e)=>{
+            // console.log(e.keyCode)
+            if(e.keyCode>=48 && e.keyCode<=57){
+            }
+            else{
+                e.preventDefault()
+            }
+        })
+
+        submitBtn.addEventListener("click", () => {
+            resetAllSmall();
+
+            if(gender[0].checked==false && gender[1].checked==false){
+                displayErrorInSmall("choose any one", gender[0]);
+            }
+
+            if(program[0].checked==false && program[1].checked==false && program[2].checked==false){
+                displayErrorInSmall("choose any one", program[0]);
+            }
+
+            for (let i = 0; i < inputBox.length; i++) {
+                let inpValue = inputBox[i].value
+                let inpId = inputBox[i].id
+
+                if (inpValue == "") {
+                    displayErrorInSmall("this is empty", inputBox[i]);
+                }
+
+                else if (inpId == "uname" && inpValue.length < 5) {
+                    displayErrorInSmall("add more char", inputBox[i]);
+                }
+
+                else if (inpId == "password") {
+                    let msg = ""
+                    console.log("pass: "+inpValue)
+
+                    if (!hasSpecialChar(inpValue)) {
+                        msg = "must special character"
+                    }
+                    if (!hasNum(inpValue)) {
+                        msg = "must contain number"
+                    }
+                    if (inpValue.length < 5) {
+                        msg = "character less than 5"
+                    }
+                    displayErrorInSmall(msg, inputBox[i]);
+                }
+                else if (inpId == "phone" && inpValue.length!=10){
+                    displayErrorInSmall("number must be 10 char", inputBox[i]);
+                }
+                else if (inpId == "cPassword" && inpValue !== inputBox[i - 1].value) {
+                    console.log("cP: "+ inpValue)
+                    displayErrorInSmall("password doesn't match", inputBox[i]);
+                }
+            }
+
+
+        })
+    </script>
+</body>
+
+</html>
