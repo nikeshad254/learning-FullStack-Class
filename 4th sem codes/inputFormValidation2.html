@@ -81,6 +81,12 @@
         <small id="phoneSmall"></small>
     </div>
 
+    <div class="inputbox">
+        <p>Email:</p>
+        <input class="textBox" type="email" name="email" id="email"><br><br>
+        <small id="emailSmall"></small>
+    </div>
+
     <div class="inputbox gender">
         <p>Gender:</p>
 
@@ -160,6 +166,16 @@
             return false;
         }
 
+        function isValidEmail(str){
+            let atRate = str.indexOf('@');
+            let atRateLast = str.lastIndexOf('@')
+            let dot = str.indexOf('.');
+            if(atRate==-1 || dot==-1 || atRate<4 || dot-atRate<3 || str.length-dot<3 || atRateLast!=atRate){
+                return false
+            }
+            return true
+        }
+
         phone.addEventListener("keypress", (e)=>{
             // console.log(e.keyCode)
             if(e.keyCode>=48 && e.keyCode<=57){
@@ -190,6 +206,10 @@
 
                 else if (inpId == "uname" && inpValue.length < 5) {
                     displayErrorInSmall("add more char", inputBox[i]);
+                }
+
+                else if (inpId == "email" && !isValidEmail(inpValue)) {
+                    displayErrorInSmall("email is not valid", inputBox[i]);
                 }
 
                 else if (inpId == "password") {
