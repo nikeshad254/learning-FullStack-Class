@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance</title>
+    <link rel="stylesheet" href="./attendance-css.css">
+</head>
+<body>
+    <nav id="main-nav">
+        <h2>Attendance <span id="topClassName">- Class One</span></h2>
+        <select name="org-names" id="org-names">
+            <option>one this isdn</option>
+            <option>one</option>
+        </select>
+    </nav>
+
+    <div class="main-content">
+        <div class="right-content">
+            <div class="input-fields">
+                <input type="text" id="addPersonTxt">
+                <button id="addPerson">Add Person</button>
+                <input type="date" name="" id="orgDate">
+            </div>
+            
+            <table class="attendance-table">
+                <thead>
+                    <th>S.N.</th>
+                    <th>Name</th>
+                    <th>Present
+                        <input type="radio" class="presAll" name="allStatus">
+                        <span id="presentAll"></span>
+                    </th>
+                    <th>Absent
+                        <input type="radio" class="absAll" name="allStatus">
+                        <span id="absentAll"></span>
+                    </th>
+                    <th>Delete</th>
+                </thead>
+                <tbody id="attendanceTable" >
+                    <tr class="attend nikesh">
+                        <td>1</td>
+                        <td>Nikesh Adhikari</td>
+                        <td>
+                            <input type="radio" name="one">
+                            <span></span>
+                        </td>
+                        <td>
+                            <input type="radio" name="one">
+                            <span></span>
+                        </td>
+                        <td>
+                            <button>remove</button>
+                        </td>
+                    </tr>
+    
+                    <tr class="attend nikesh">
+                        <td>1</td>
+                        <td>Nikesh Adhikari</td>
+                        <td>
+                            <input type="radio" name="one">
+                            <span></span>
+                        </td>
+                        <td>
+                            <input type="radio" name="one">
+                            <span></span>
+                        </td>
+                        <td>
+                            <button>remove</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+
+
+
+    <script src="./attendance-js.js"></script>
+</body>
+</html>

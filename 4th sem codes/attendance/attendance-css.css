@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+#main-nav{
+    background: linear-gradient(90deg, #7A1EB6, #E79BFC);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.3rem;
+    letter-spacing: 1px;
+    position: relative;
+}
+#org-names{
+    position: absolute;
+    left: 2rem;
+    background: #CF6DF4;
+    color: #fff;
+}
+.main-content{
+    display: flex;
+    margin-top: 2rem;
+    justify-content: space-evenly;
+}
+.right-content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.input-fields{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding-left: 2rem;
+    align-items: center;
+}
+.input-fields input[type="text"]{
+    width: 15rem;
+    font-size: 1rem;
+    padding: 0 0.5rem;
+}
+.input-fields button{
+    padding: 0.2rem 0.5rem;
+    background-color: #BDE8FF;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.input-fields button:hover{
+    background-color: #E79BFC;
+}
+.attendance-table{
+    margin-left: 2rem;
+    /* margin-top: 2rem; */
+    border-spacing: 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    height: fit-content;
+    width: 50rem;
+}
+
+.attendance-table td, .attendance-table th{
+    border: 1px solid #ccc;
+    padding: 0.2rem 1rem;
+    text-align: center;
+    position: relative;
+}
+
+
+
+.attendance-table button{
+    background-color: #E79BFC;
+    border: none;
+    padding: 0.3rem 0.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.attendance-table button:hover{
+    background-color: #87DAFB;
+}
+
+input[type="radio"]{
+    opacity: 1;
+    width: 1rem;
+    height: 1rem;
+    position: relative;
+    z-index: 100;
+    display: none;
+}
+input[type="radio"] + span::before{
+    display: inline-block;
+    content: "";
+    position: absolute;
+    top: 0.3rem;
+    right: 4rem;
+    border: 2px solid #ccc;
+    border-radius: 2px;
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+}
+input[type="radio"]:checked + span::before{
+    background-color: #1BC2E3;
+    content: "\2714";
+    color: #fff;
+}
+
+.attendance-table th span::before{
+    /* position: absolute; */
+    right: 0.5rem;
+}
