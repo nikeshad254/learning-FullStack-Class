@@ -17,7 +17,7 @@
     <script>
         const lists = document.getElementById("lists");
         lists.addEventListener("click", (e)=>{
-            if(e.target.id != "lists")
+            if(e.target.matches("li"))
                 e.target.style.color = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
                 e.target.style.background = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
 
