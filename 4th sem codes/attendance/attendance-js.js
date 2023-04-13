@@ -61,9 +61,7 @@ function updateTable() {
                 <span></span>
             </td>
             <td>
-                <button onclick="${
-                  allData[className].student_name[i]
-                }">remove</button>
+                <button onclick="removePerson('${allData[className].student_name[i]}')">remove</button>
             </td>
         </tr>
         `;
@@ -76,22 +74,21 @@ function updateTable() {
       //console.log(e.target.parentNode.getElementsByTagName("input")[0]);
       e.target.parentNode.getElementsByTagName("input")[0].checked = true;
 
-      if (e.target.id === "presentAll") selectAllChecks('pres');
-      if (e.target.id === "absentAll") selectAllChecks('abs');
-      checkAll()
+      if (e.target.id === "presentAll") selectAllChecks("pres");
+      if (e.target.id === "absentAll") selectAllChecks("abs");
+      checkAll();
     });
   }
 }
 
-function selectAllChecks(nam){
-    let checkBox = document.querySelectorAll("input[type='radio']+span");
-    let radio = document.querySelectorAll("input[type='radio']")
-    for(i=0; i<checkBox.length; i++){
-        if(radio[i].className === nam) {
-            radio[i].checked = true;
-        }
+function selectAllChecks(nam) {
+  let checkBox = document.querySelectorAll("input[type='radio']+span");
+  let radio = document.querySelectorAll("input[type='radio']");
+  for (i = 0; i < checkBox.length; i++) {
+    if (radio[i].className === nam) {
+      radio[i].checked = true;
     }
-
+  }
 }
 
 function updateSelect() {
@@ -117,36 +114,43 @@ addPerson.addEventListener("click", () => {
   updateTable();
 });
 
+function checkAll() {
+  let radio = document.querySelectorAll("input[type='radio']");
+  let pres = 0,
+    abs = 0;
+  for (i = 0; i < radio.length; i++) {
+    // console.log(radio[i].className)
+    if (radio[i].className === "pres" && radio[i].checked) {
+      pres++;
+    }
+    if (radio[i].className === "abs" && radio[i].checked) {
+      abs++;
+    }
+  }
+  console.log(
+    "length, pres , abs = " + pres + " , " + abs + " , " + radio.length
+  );
+  if (pres == radio.length / 2 - 1) {
+  } else if (abs == radio.length / 2 - 1) {
+  } else {
+    for (i = 0; i < radio.length; i++) {
+      if (radio[i].className === "presAll") {
+        radio[i].checked = false;
+      }
+      if (radio[i].className === "absAll") {
+        console.log(radio[i]);
+        radio[i].checked = false;
+      }
+    }
+  }
+}
 
-function checkAll(){
-    let radio = document.querySelectorAll("input[type='radio']")
-    let pres = 0, abs =0;
-    for(i=0; i<radio.length; i++){
-        // console.log(radio[i].className)
-        if(radio[i].className === "pres" && radio[i].checked){
-            pres++;
-        }
-        if(radio[i].className === "abs" && radio[i].checked){
-            abs++;
-        }
-    }
-    console.log("length, pres , abs = "+pres+" , "+abs+" , "+radio.length)
-    if(pres == radio.length/2-1){
-        
-    }else if(abs == radio.length/2-1){
-
-    }
-    else{
-        for(i=0; i<radio.length; i++){
-            if(radio[i].className === "presAll"){
-                radio[i].checked = false;
-            }
-            if(radio[i].className === "absAll"){
-                console.log(radio[i])
-                radio[i].checked = false;
-            }
-        }
-    }
+function removePerson(pname) {
+  let class_name = selectOrgNames.value;
+  let studentIndex = allData[class_name].student_name.indexOf(pname); // index of student to remove
+  allData[class_name].student_name.splice(studentIndex, 1);
+  localStorage.setItem("studentList", JSON.stringify(allData));
+  updateTable();
 }
 updateSelect();
 updateTable();
