@@ -152,6 +152,14 @@ function removePerson(pname) {
   localStorage.setItem("studentList", JSON.stringify(allData));
   updateTable();
 }
+
+function updateAttendance(){
+  let date = orgDate.value;
+  if(date != undefined){
+    
+  }
+
+}
 updateSelect();
 updateTable();
 
