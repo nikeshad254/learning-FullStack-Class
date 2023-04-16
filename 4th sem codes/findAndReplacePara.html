@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find and Replace</title>
+
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="findHere">
+        The world is full of wonders, but the greatest of them all is the mystery of life itself. From the moment we
+        take our first breath to the moment we draw our last, the the journey of life is filled with ups and downs,
+        triumphs and tragedies, and moments of pure joy and utter despair. But through it all, the the one constant is
+        the passage of time, a relentless force that never stops or slows down, no matter how hard we try to hold onto
+        the moments that matter most.
+
+        In the face of such a daunting reality, it can be easy to feel overwhelmed, lost, or alone. But the the truth
+        is, we are never truly alone. For every person we meet, every relationship we form, and every experience we
+        have, there is the the potential for growth, learning, and connection. Even in the darkest of moments, the the
+        tiniest flicker of hope can be enough to keep us going, to remind us that no matter how hard life may seem,
+        there is always the the possibility of something better, something brighter, just around the corner.
+
+        So as we navigate the twists and turns of this journey we call life, let us never forget the the power of the
+        human spirit, the the resilience of the human heart, and the the beauty of the world around us. Let us embrace
+        the the challenges that come our way, knowing that they are the the very things that will help us grow and
+        become the the best version of ourselves. And let us always remember that no matter what may happen, the the
+        journey is always worth it, because it is the the journey that gives meaning to our lives, and makes us who we
+        are.
+    </p>
+
+    <button id="fnrBtn">Find & Replace</button>
+
+    <div class="findAndReplaceContainer hide">
+        <p>Find: </p>
+        <input type="text" id="find">
+
+        <p>Replace: </p>
+        <input type="text" id="replace"> <br><br>
+
+        <button id="okFNR">Find & Replace</button>
+        <button id="cancelFNR">Cancel</button>
+    </div>
+
+
+    <script>
+        let para = document.getElementById("findHere");
+        let fnrBtn = document.getElementById("fnrBtn");
+        let find = document.getElementById("find");
+        let replace = document.getElementById("replace");
+        let findAndReplaceContainer = document.querySelector('.findAndReplaceContainer');
+        let okFNR = document.getElementById("okFNR");
+        let cancelFNR = document.getElementById("cancelFNR");
+
+        fnrBtn.addEventListener('click', () => {
+            fnrBtn.classList.add('hide');
+            findAndReplaceContainer.classList.remove('hide')
+        })
+
+        cancelFNR.addEventListener('click', () => {
+            fnrBtn.classList.remove('hide');
+            findAndReplaceContainer.classList.add('hide')
+        })
+
+        okFNR.addEventListener('click', () => {
+            let findValue = find.value
+            let replaceValue = replace.value
+            if (findValue.length < 1 || replaceValue.length < 1)
+                return
+            para.textContent = para.textContent.replaceAll(findValue, replaceValue);
+
+            find.value = ""
+            replace.value = ""
+
+            fnrBtn.classList.remove('hide');
+            findAndReplaceContainer.classList.add('hide')
+        })
+    </script>
+</body>
+
+</html>
