@@ -10,15 +10,25 @@
 
 <body>
     <script>
+
+        //string matching
         const str =
             "Lorem ipsum dolor sit amet ipsum consectetur adipisicing elit. ipsum At hic totam fuga eius modi debitis.";
-        let re = /ipsum/ig;
-        console.log("test " + re.test(str));
-        console.log("exec " + re.exec(str).index);
+        let re = /i...m/;
+        document.write("test " + re.test(str));
+        document.write(" ... exec " + re.exec(str).index);
 
-        let str1 = str.replaceAll(re,"new" )
-        console.log(str1)
+        //phone num basic pattern matching
+        let phoneNum = ['801-765-5438', '801-029-0293', '230-029-3039', '108-029-2029', '801-203-0454']
 
+        let pattern = /801-/
+
+        let validNumber = []
+        for(i=0; i<phoneNum.length; i++){
+            if(pattern.test(phoneNum[i]))
+                validNumber.push(phoneNum[i])
+        }
+        document.write(" ... valid Number: "+ validNumber)
     </script>
 </body>
 
