@@ -13,10 +13,10 @@
 
         //string matching
         const str =
-            "Lorem ipsum dolor sit amet ipsum consectetur adipisicing elit. ipsum At hic totam fuga eius modi debitis.";
+            "Lorem ipsum dolor sit amet ipsum 238928398293 93829382 2983928392 29839283 consectetur adipisicing elit. ipsum At hic totam fuga eius modi debitis.";
         let re = /i...m/;
         document.write("test " + re.test(str));
-        document.write(" ... exec " + re.exec(str).index);
+        document.write("<br><br> ... exec " + re.exec(str).index);
 
         //phone num basic pattern matching
         let phoneNum = ['801-765-5438', '801-029-0293', '230-029-3039', '108-029-2029', '801-203-0454']
@@ -28,7 +28,59 @@
             if(pattern.test(phoneNum[i]))
                 validNumber.push(phoneNum[i])
         }
-        document.write(" ... valid Number: "+ validNumber)
+        document.write("<br><br> ... valid Number: "+ validNumber)
+
+        //vowel testing
+        let vowelPattern = /[aeiou]/ig;
+        let result = str.match(vowelPattern);
+        document.write("<br><br> .... vowel pattern: "+ result)
+        console.log(result)
+
+        //alpha testing
+        let alphaPattern = /[a-z]/ig;
+        result = str.match(alphaPattern);
+        document.write("<br><br> .... only alpha: "+ result)
+
+        //pattern testing
+        Pattern = /[d-t 2-7]/ig;
+        result = str.match(Pattern);
+        document.write("<br><br> .... pattern d-t 2-7: "+ result)
+
+        //exclude pattern using ^
+        Pattern = /[^a-z]/ig;
+        result = str.match(Pattern);
+        document.write("<br><br> .... exclude alpha: "+ result)
+
+        //repeated multi pattern  pattern
+        let word = "Impossibsslses"
+        Pattern = /[^s+]/ig;
+        result = word.match(Pattern);
+        document.write("<br><br> ... exclude repeated s: "+ result+ " from: "+ word)
+
+        //repeated multi pattern  pattern
+        word = "goskds gooooal gheodn oda oggy"
+        Pattern = /go*/ig;
+        result = word.match(Pattern);
+        document.write("<br><br> ... match g and o pattern go: "+ result+ " .... from: "+ word)
+
+        // greedy search
+        word = "titanic"
+        Pattern = /t[a-z]*i/; //start t end i bech ma a to z
+        result = word.match(Pattern);
+        document.write("<br><br> ... greedy search: "+ result+ " .... from: "+ word)
+
+        // lazy search
+        word = "titanic"
+        Pattern = /t[a-z]*?i/; //t rw i matrw vetisi sakiyo
+        result = word.match(Pattern);
+        document.write("<br><br> ... lazy search: "+ result+ " .... from: "+ word)
+
+        // greedy search
+        word = "<h1> hello world </h1> <p>i am computer</p><div>my country</div> hohhlkhlkh"
+        Pattern = /<.*>/; 
+        result = word.match(Pattern);
+        document.write("<br><br> ... greater search: "+ result+ " .... from: long htmls..<br>")
+
     </script>
 </body>
 

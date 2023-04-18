@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Viewer</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            margin-top: 5rem;
+            /* flex-direction: column; */
+        }
+        .inputs{
+            display: flex;
+            gap: 3rem;
+            justify-content: space-between;
+            width: 30vw;
+            position: relative;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            width: 50vw;
+            padding: 2rem;
+        }
+        #pattern, #text, #attrib{
+            width: 300px;
+            height: 1.3rem;
+            padding: 0rem 0.4rem;
+            margin-bottom: 20px;
+        }
+        #text{
+            height: 10rem;
+            resize: none;
+            text-align: justify;
+        }
+        #matchPattern{
+            margin-bottom: 20px;
+        }
+        #resultTxt{
+            /* text-align: justify; */
+            border: 1px solid black;
+            padding: 1rem;
+        }
+        #attrib{
+            position: absolute;
+            width: 35px;
+            right: -45px;
+        }
+        button{
+            width: fit-content;
+            padding: 0 1rem;
+        }
+        pre{
+            white-space: pre-wrap;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="inputs">
+            <p>Pattern: </p>
+            <div>
+                <input type="text" name="pattern" id="pattern">
+                <input type="text" name="attrib" id="attrib">
+            </div>
+        </div>
+    
+        <div class="inputs">
+            <p>Text: </p>
+            <textarea name="text" id="text"></textarea>
+        </div>
+
+        <button id="randomBtn">Random Text</button>
+    </div>
+    <div class="container previewer">
+        <p id="matchPattern">Match: </p>
+        <p id="resultTxt">--empty--</p>
+    </div>
+
+
+    <script>
+        let pattern = document.getElementById("pattern")
+        let text = document.getElementById("text")
+        let attrib = document.getElementById("attrib")
+        let matchPattern = document.getElementById("matchPattern")
+        let resultTxt = document.getElementById("resultTxt")
+        let randomBtn = document.getElementById("randomBtn")
+
+        let handleChange = (e)=>{
+            let regex;
+            (attrib.value.length>0) ? regex = new RegExp(pattern.value, attrib.value) : regex = new RegExp(pattern.value); 
+            let str = text.value
+            matchPattern.textContent = "Match: "+regex;
+            resultTxt.innerHTML = str.replace(regex,`<mark>$&</mark>`)
+
+        }
+
+        pattern.addEventListener('input', ()=>{handleChange()})
+        attrib.addEventListener('input', ()=>{handleChange()})
+        text.addEventListener('input', ()=>{handleChange()})
+
+        randomBtn.addEventListener('click', ()=>{
+            text.value = 'this is a random generated text it has THIS THSksjd number 2938 2938 29333 then #$ symbols ; d;skd; dkjskdj  9283 di29d 2093nd 29u23 dn92n d  n309fn then all'
+            handleChange()
+        })
+    </script>
+</body>
+</html>
