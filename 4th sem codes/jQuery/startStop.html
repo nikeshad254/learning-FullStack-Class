@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="./js/jquery-3.7.0.min.js"></script>
+<script> 
+$(document).ready(function(){
+  $("#start").click(function(){
+    $("div").animate({left: '50%'}, 5000);
+    $("div").animate({fontSize: '3em'}, 5000);
+  });
+  
+  $("#stop").click(function(){
+    $("div").stop();
+  });
+
+  $("#stop2").click(function(){
+    $("div").stop(true);
+  });
+
+  $("#stop3").click(function(){
+    $("div").stop(true, true);
+  }); 
+});
+</script> 
+</head>
+<body>
+
+<button id="start">Start</button>
+<button id="stop">Stop</button>
+<button id="stop2">Stop all</button>
+<button id="stop3">Stop but finish</button>
+
+<div style="background:#98bf21;height:100px;width:200px;position:absolute;">HELLO</div>
+
+</body>
+</html>
