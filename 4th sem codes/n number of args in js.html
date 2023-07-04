@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>testing any number of argument in js function ES6</h1>
+
+    <p>to test use sum(any number of args in console)</p>
+
+    <p>for ES5 use sumES()</p>
+
+    <script>
+        function sum(...args) {
+            return args.reduce(function (prev, cur) {
+                return prev + cur;
+            })
+        }
+
+        function sumES() {
+            var sum = 0;
+            for (var i = 0; i < arguments.length; i++) {
+                sum += arguments[i];
+            }
+            return sum;
+        }
+    </script>
+</body>
+
+</html>
